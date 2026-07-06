@@ -1,5 +1,18 @@
 package solid;
 
+/*
+=========================================
+INTERFACE SEGREGATION PRINCIPLE (ISP)
+=========================================
+
+Definition:
+A class should not be forced to implement
+interfaces it does not use.
+
+This example separates Rider and Driver
+responsibilities into different interfaces.
+*/
+
 interface DriverInterface {
 
     void acceptRide();
@@ -14,6 +27,7 @@ interface RiderInterface {
     void cancelRide();
 }
 
+// Implements only Rider-related methods
 class Rider implements RiderInterface {
 
     @Override
@@ -27,6 +41,7 @@ class Rider implements RiderInterface {
     }
 }
 
+// Implements only Driver-related methods
 class Driver implements DriverInterface {
 
     @Override
@@ -40,9 +55,10 @@ class Driver implements DriverInterface {
     }
 }
 
-class ISP {
+public class ISP {
 
     public static void main(String[] args) {
+
         Rider rider = new Rider();
         rider.bookRide();
         rider.cancelRide();
@@ -52,3 +68,4 @@ class ISP {
         driver.drive();
     }
 }
+
