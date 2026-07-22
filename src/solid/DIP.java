@@ -13,8 +13,7 @@ on abstractions (Interfaces).
 This example follows DIP because
 PaymentService depends on the Payment
 interface instead of concrete payment classes.
-*/
-
+ */
 interface Payment {
 
     void pay(double amount);
@@ -38,7 +37,15 @@ class CardPayment implements Payment {
     }
 }
 
+class CreditCardPayment implements Payment {
+
+    @Override
+    public void pay(double amount) {
+        System.out.println("Credit card payment" + amount);
+    }
+}
 // High-Level Module
+
 class PaymentService {
 
     private Payment payment;
@@ -82,4 +89,4 @@ CardPayment
 
 Abstraction:
 Payment Interface
-*/
+ */
